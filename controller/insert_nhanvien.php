@@ -1,0 +1,21 @@
+<?php
+include_once('../models/user.php');
+include_once('../models/nhanvien.php');
+if(!isset($_POST['insert'])) header('Location: ../views/table_nhanvien.php');
+$holot = $_POST['holot'];
+$ten = $_POST['ten'];
+$diachi = $_POST['diachi'];
+$ngaysinh = $_POST['ngaysinh'];
+$ngoaingu = $_POST['ngoaingu'];
+$email = $_POST['email'];
+$sdtnoibo = $_POST['sdtnoibo'];
+$didong = $_POST['didong'];
+$bc_cc = $_POST['bc_cc'];
+$ngayvao = $_POST['ngayvao'];
+$luong = $_POST['luong'];
+$vitri = $_POST['vitri'];
+$attr = array('holot' => $holot,'ten' => $ten,'diachi' => $diachi,'ngaysinh' => $ngaysinh,'ngoaingu' => $ngoaingu, 'email' => $email, 'sdtnoibo' => $sdtnoibo, 'didong' => $didong, 'bc_cc' => $bc_cc, 'ngayvao' => $ngayvao, 'luong' => $luong, 'vitri' => $vitri);
+$nhanvien = new NHANVIEN;
+$res = $nhanvien->insert_nhan_vien($attr);
+$error = error_get_last();
+header('Location: ../views/table_nhanvien.php');
